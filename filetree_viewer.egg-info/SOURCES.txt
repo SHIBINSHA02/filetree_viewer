@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+setup.py
+filetree_viewer/__init__.py
+filetree_viewer/__main__.py
+filetree_viewer/cli.py
+filetree_viewer/core.py
+filetree_viewer/utils.py
+filetree_viewer.egg-info/PKG-INFO
+filetree_viewer.egg-info/SOURCES.txt
+filetree_viewer.egg-info/dependency_links.txt
+filetree_viewer.egg-info/entry_points.txt
+filetree_viewer.egg-info/top_level.txt

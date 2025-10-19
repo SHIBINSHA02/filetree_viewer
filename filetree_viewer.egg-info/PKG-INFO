@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: filetree_viewer
+Version: 1.0.0
+Summary: A Python package to display complete file structure from the current directory schema.
+Author: Your Name
+Author-email: S Shibinsha <youremail@example.com>
+License: MIT
+Keywords: filesystem,directory,tree,CLI,visualization
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: requires-python
+
+<!-- README.md -->
