@@ -1,3 +1,4 @@
+<!-- README.md -->
 # filetree_viewer
 
 [![Python Version](https://img.shields.io/badge/python-3.7%2B-blue.svg)](https://www.python.org/)
@@ -216,8 +217,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 **S Shibinsha**
 
-- Email: shibinsha@example.com
-- GitHub: [@yourusername](https://github.com/yourusername)
+- Email: shibin24888@gmail.com
+- GitHub: [@SHIBINSHA02](https://github.com/SHIBINSHA02)
 
 ---
 
