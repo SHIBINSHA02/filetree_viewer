@@ -1,2 +1,0 @@
-[console_scripts]
-filetree-viewer = filetree_viewer.cli:main
