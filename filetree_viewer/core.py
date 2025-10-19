@@ -3,6 +3,9 @@ import os
 import json
 
 def get_directory_structure(root_dir: str, as_json: bool = False, show_hidden: bool = False):
+    """
+    Recursively builds a nested dict representing the folder structure.
+    """
     def build_tree(directory):
         tree = {"name": os.path.basename(directory), "type": "directory", "children": []}
         try:
@@ -25,15 +28,21 @@ def get_directory_structure(root_dir: str, as_json: bool = False, show_hidden: b
     return structure
 
 
-def print_tree(structure, indent=""):
- 
+def print_tree(structure, prefix=""):
+   
     if isinstance(structure, str):
         import json
         structure = json.loads(structure)
 
-    print(f"{indent}📁 {structure['name']}")
-    for child in structure.get("children", []):
-        if child["type"] == "directory":
-            print_tree(child, indent + "   ")
-        else:
-            print(f"{indent}   📄 {child['name']}")
+    # Print current directory/file
+    connector = "└── " if prefix.endswith("└── ") else "├── "
+    if structure["type"] == "directory":
+        print(f"{prefix}📁 {structure['name']}")
+        children = structure.get("children", [])
+        for i, child in enumerate(children):
+            is_last = i == len(children) - 1
+            # Set new prefix for nested structure
+            child_prefix = prefix + ("    " if is_last else "│   ")
+            print_tree(child, child_prefix)
+    else:
+        print(f"{prefix}📄 {structure['name']}")

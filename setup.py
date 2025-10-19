@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup(
     name="filetree_viewer",
     version="1.0.0",
-    author="Your Name",
+    author="S SHIBINSHA",
     description="A Python package to view complete file structure from current schema",
     packages=find_packages(),
     entry_points={
