@@ -3,48 +3,67 @@
 [![Python Version](https://img.shields.io/badge/python-3.7%2B-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-`filetree_viewer` is a Python package and command-line interface (CLI) tool designed to **visualize the complete file and folder structure** of any directory. It is ideal for developers, system administrators, and anyone needing a clear overview of a project's or folder's structure.
+A Python package and CLI tool that allows you to **visualize the complete file and folder structure** of any directory. Designed for developers, system administrators, and anyone who wants a clear overview of a project's or folder's structure.
 
-The tool supports both a **Python API** for programmatic use and a **CLI** for quick, terminal-based interaction.
+---
 
-## Features
+## ✨ Features
 
-- Recursively traverses directories to display all files and folders.
-- Supports both Python library usage and a command-line interface.
-- Optionally includes hidden files and folders.
-- Outputs directory structure in:
-  - A visually formatted tree view.
-  - JSON format for programmatic use.
-- Lightweight and dependency-free (optional `rich` library for colorized output).
-- Cross-platform compatibility (Windows, Linux, macOS).
+- 🌳 Recursively traverse directories and display all files and folders
+- 🐍 Works as a Python library or command-line tool
+- 👁️ Optionally include hidden files and folders
+- 📊 Multiple output formats:
+  - Visually formatted tree
+  - JSON for programmatic use
+- 🪶 Lightweight and dependency-free (optional `rich` support for colorized output)
+- 🌍 Cross-platform (Windows, Linux, macOS)
 
-## Installation
+---
 
-To install `filetree_viewer`, clone the repository and install it in editable mode:
+## 📦 Installation
+
+### Install from source
 
 ```bash
-```
-git clone <your-repo-url>
+git clone https://github.com/yourusername/filetree_viewer.git
 cd filetree_viewer
 pip install -e .
+```
 
-filetree-viewer <path_to_directory>
+### Install from PyPI (coming soon)
+
+```bash
+pip install filetree-viewer
 ```
-```
-# Display the structure of the current directory
+
+---
+
+## 🚀 Quick Start
+
+### Command Line Interface
+
+After installation, use the CLI to visualize any directory:
+
+```bash
+# View current directory
 filetree-viewer .
 
-# Display the structure of a specific directory with hidden files
-filetree-viewer "C:\Projects\MyApp" --show-hidden
+# View a specific directory
+filetree-viewer /path/to/directory
 
-# Output the structure as JSON
-filetree-viewer "C:\Projects\MyApp" --json
+# Include hidden files
+filetree-viewer . --show-hidden
 
+# Output as JSON
+filetree-viewer . --json
 ```
-```
+
+### Python API
+
+```python
 from filetree_viewer import get_directory_structure, print_tree
 
-# Get the directory structure of the current folder
+# Get and print the directory structure
 tree = get_directory_structure(".")
 print_tree(tree)
 
@@ -52,20 +71,58 @@ print_tree(tree)
 json_tree = get_directory_structure(".", as_json=True)
 print(json_tree)
 ```
+
+---
+
+## 📖 Usage
+
+### CLI Options
+
+| Option | Description |
+|--------|-------------|
+| `path` | Root directory to scan (default: current directory) |
+| `--json` | Output structure as JSON instead of tree format |
+| `--show-hidden` | Include hidden files and folders (starting with `.`) |
+
+### Examples
+
+```bash
+# Basic usage
+filetree-viewer .
+
+# Show hidden files
+filetree-viewer . --show-hidden
+
+# Windows path with spaces
+filetree-viewer "C:\Program Files\MyApp"
+
+# Output as JSON for parsing
+filetree-viewer /home/user/projects --json > structure.json
+```
+
+---
+
+## 📋 Example Output
+
+### Tree Format
+
 ```
 📁 .
    📁 filetree_viewer
+      📄 __init__.py
+      📄 __main__.py
       📄 cli.py
       📄 core.py
       📄 utils.py
-      📄 __init__.py
-      📄 __main__.py
-   📄 setup.py
+   📄 LICENSE
    📄 README.md
    📄 requirements.txt
-   ```
+   📄 setup.py
 ```
-## json format
+
+### JSON Format
+
+```json
 {
   "name": ".",
   "type": "directory",
@@ -74,49 +131,119 @@ print(json_tree)
       "name": "filetree_viewer",
       "type": "directory",
       "children": [
+        { "name": "__init__.py", "type": "file" },
+        { "name": "__main__.py", "type": "file" },
         { "name": "cli.py", "type": "file" },
-        { "name": "core.py", "type": "file" }
+        { "name": "core.py", "type": "file" },
+        { "name": "utils.py", "type": "file" }
       ]
-    }
+    },
+    { "name": "LICENSE", "type": "file" },
+    { "name": "README.md", "type": "file" },
+    { "name": "requirements.txt", "type": "file" },
+    { "name": "setup.py", "type": "file" }
   ]
 }
 ```
-Development
-To contribute to or modify filetree_viewer:
 
-Clone the repository:
-bashgit clone <your-repo-url>
-cd filetree_viewer
+---
 
-Install dependencies:
-bashpip install -r requirements.txt
+## 🛠️ Development
 
-Install the package locally in editable mode:
-bashpip install -e .
+### Setup Development Environment
 
-Run the CLI or import the library in your Python scripts for testing.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/filetree_viewer.git
+   cd filetree_viewer
+   ```
 
-Optional Enhancements
-The following features are planned or can be implemented:
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Colorized tree view using the rich library.
-Export directory structure as Markdown or HTML.
-Filter by file type or folder depth.
-Ignore files based on .gitignore or custom patterns.
+3. Install in editable mode:
+   ```bash
+   pip install -e .
+   ```
 
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
-Author
-S Shibinsha
-Email: youremail@example.com
-text### Changes Made
-1. **Improved Structure**: Organized sections with consistent headings (e.g., `##`, `###`) for better hierarchy.
-2. **Consistent Formatting**: Used proper Markdown syntax for code blocks, tables, and lists.
-3. **Clarified Instructions**: Rewrote installation and usage sections for clarity and consistency.
-4. **Fixed Minor Issues**: Corrected formatting in example commands (e.g., removed redundant "bash Copy code" text) and ensured consistent terminology (e.g., "CLI" instead of mixing "CLI" and "command-line tool").
-5. **Enhanced Readability**: Added spacing and improved wording for better flow and clarity.
-6. **Table for CLI Options**: Converted CLI options into a table for better presentation.
-7. **Maintained Original Content**: Kept all original information intact, including badges, features, and examples.
+4. Run tests (if available):
+   ```bash
+   pytest tests/
+   ```
 
-This version should be clear, professional, and well-structured for use in your project. Let me know if you need any further adjustments!
+### Project Structure
+
 ```
+filetree_viewer/
+├── filetree_viewer/
+│   ├── __init__.py
+│   ├── __main__.py
+│   ├── cli.py          # CLI interface
+│   ├── core.py         # Core logic
+│   └── utils.py        # Helper functions
+├── tests/
+├── LICENSE
+├── README.md
+├── requirements.txt
+└── setup.py
+```
+
+---
+
+## 🎯 Future Enhancements
+
+- [ ] Colorized tree view using `rich` library
+- [ ] Export tree as Markdown or HTML
+- [ ] Filter by file type (e.g., `*.py`, `*.js`)
+- [ ] Limit traversal depth
+- [ ] Respect `.gitignore` patterns
+- [ ] Custom ignore patterns
+- [ ] File size information
+- [ ] Last modified timestamps
+- [ ] Interactive mode
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👤 Author
+
+**S Shibinsha**
+
+- Email: shibinsha@example.com
+- GitHub: [@yourusername](https://github.com/yourusername)
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## ⭐ Show Your Support
+
+Give a ⭐️ if this project helped you!
+
+---
+
+## 📝 Changelog
+
+### v1.0.0 (Initial Release)
+- Basic directory tree visualization
+- CLI interface
+- Python API
+- JSON output support
+- Hidden files toggle
