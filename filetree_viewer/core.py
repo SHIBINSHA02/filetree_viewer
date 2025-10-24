@@ -1,6 +1,7 @@
 # filetree_viewer/core.py
 import os
 import json
+# import pprint
 
 def get_directory_structure(root_dir: str, as_json: bool = False, show_hidden: bool = False):
     """
@@ -10,6 +11,7 @@ def get_directory_structure(root_dir: str, as_json: bool = False, show_hidden: b
         tree = {"name": os.path.basename(directory), "type": "directory", "children": []}
         try:
             for item in os.listdir(directory):
+                # print(item,"----------------->" ,directory)
                 if not show_hidden and item.startswith('.'):
                     continue
                 path = os.path.join(directory, item)
@@ -19,6 +21,7 @@ def get_directory_structure(root_dir: str, as_json: bool = False, show_hidden: b
                     tree["children"].append({"name": item, "type": "file"})
         except PermissionError:
             tree["children"].append({"name": "Permission Denied", "type": "error"})
+   
         return tree
 
     structure = build_tree(root_dir)
@@ -46,3 +49,9 @@ def print_tree(structure, prefix=""):
             print_tree(child, child_prefix)
     else:
         print(f"{prefix}📄 {structure['name']}")
+
+
+
+
+# structure=get_directory_structure(r"C:\coding stuff\Programming_Stuff\Python_Hobby\filetree_viewer")
+# pprint.pprint(structure)

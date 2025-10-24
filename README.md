@@ -155,7 +155,7 @@ filetree-viewer /home/user/projects --json > structure.json
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/filetree_viewer.git
+   git clone https://github.com/SHIBINSHA02/filetree_viewer.git
    cd filetree_viewer
    ```
 
